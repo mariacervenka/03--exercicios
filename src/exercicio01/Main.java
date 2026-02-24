@@ -1,5 +1,6 @@
 package exercicio01;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,6 +11,7 @@ public class Main {
         Scanner entrada= new Scanner(System.in);
         Random rd= new Random();
         Conta conta= new Conta();
+        DecimalFormat df= new DecimalFormat("#,##0.00");
         double valor; //nao eh um objeto pq o tipo a variavel nn eh uma classe
 
 
@@ -18,7 +20,7 @@ public class Main {
         conta.correntista = entrada.next();
         conta.numero = rd.nextInt(1000, 9999);
 
-        System.out.println("saldo inicial: R$ " +conta.saldo);
+        System.out.println("saldo inicial: R$ " +df.format(conta.saldo));
         System.out.println("informe o valor para deposito: R$ ");
         valor = entrada.nextDouble();
         conta.deposito(valor);
@@ -27,7 +29,7 @@ public class Main {
         valor = entrada.nextDouble();
         conta.sacar(valor);
 
-        System.out.println("saldo atual: R$ " +conta.saldo);
+        System.out.println("saldo atual: R$ " +df.format(conta.saldo));
 
 
 
